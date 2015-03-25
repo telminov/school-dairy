@@ -1,0 +1,26 @@
+# ansible-playbook -i inv install_backend.yml -u vagrant -v
+---
+- hosts: backend
+  sudo: yes
+
+  tasks:
+    - name: Run 'apt-get update'
+      apt: update_cache=yes
+
+    - name: Install deb packages
+      apt: pkg={{ item }} state=latest
+      with_items: [
+        python-setuptools, python3-dev, ntp
+      ]
+
+    - name: Install virtualenv
+      easy_install: name=virtualenv
+
+    - name: Install virtualenv requiremenets
+      shell: virtualenv -p /usr/bin/python3 {{ virtualenv_path }}
+      sudo_user: "{{ virtualenv_user }}"
+
+    - name: Install virtualenv requiremenets
+      pip: virtualenv={{ virtualenv_path }}
+           requirements={{ repo_path }}/backend/requirements.txt
+      sudo_user: "{{ virtualenv_user }}"

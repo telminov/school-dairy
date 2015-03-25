@@ -1,0 +1,4 @@
+.idea
+backend/.vagrant
+backend/project/settings.py
+backend/db.sqlite3
