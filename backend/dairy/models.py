@@ -48,7 +48,7 @@ class Lesson(models.Model):
 
 class Classwork(models.Model):
     lesson = models.ForeignKey(Lesson)
-    tutorial = models.ForeignKey(Tutorial)
+    tutorial = models.ForeignKey(Tutorial, verbose_name='Учебник')
     description = models.TextField(verbose_name='Описание')
 
     class Meta:
@@ -60,7 +60,7 @@ class Classwork(models.Model):
 
 class Homework(models.Model):
     lesson = models.ForeignKey(Lesson)
-    tutorial = models.ForeignKey(Tutorial)
+    tutorial = models.ForeignKey(Tutorial, verbose_name='Учебник')
     description = models.TextField(verbose_name='Описание')
 
     class Meta:
