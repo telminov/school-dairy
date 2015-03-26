@@ -1,0 +1,21 @@
+{
+  "name": "school-dairy",
+  "version": "0.0.0",
+  "homepage": "https://github.com/telminov/school-dairy",
+  "authors": [
+    "Telminov Sergey <telminov@soft-way.biz>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "core-elements": "Polymer/core-elements#~0.5.5",
+    "paper-elements": "Polymer/paper-elements#~0.5.5"
+  }
+}
