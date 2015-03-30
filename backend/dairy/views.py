@@ -15,10 +15,9 @@ class DayItemViewSet(rest_framework.mixins.ListModelMixin, rest_framework.viewse
 
 def get_schedule(request):
     c = {
-        'days_if_week': dict(models.ScheduleItem.DAY_OF_WEEK_CHOICES)
+        'schedule': []
     }
 
-    c['days'] = OrderedDict()
     for i, day_name in models.ScheduleItem.DAY_OF_WEEK_CHOICES:
         day_data = {
             'name': day_name,
@@ -29,6 +28,6 @@ def get_schedule(request):
             item_data = serializers.ScheduleItem(instance=item).data
             day_data['items'].append(item_data)
 
-        c['days'][i] = day_data
+        c['schedule'].append(day_data)
 
     return JSONResponse(c)

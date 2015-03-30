@@ -1,1 +1,13 @@
-расписание
+<table class="table table-striped" sw-loading="loading">
+    <thead>
+        <tr>
+            <th ng-repeat="day in schedule.days">{{ day.name }}</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="dayItem in schedule.getAllDayItems()">
+
+        </tr>
+    </tbody>
+</table>

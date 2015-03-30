@@ -7,6 +7,7 @@ class DayItem(rest_framework.serializers.ModelSerializer):
     class Meta:
         model = models.DayItem
 
+
 class Subject(rest_framework.serializers.ModelSerializer):
     is_optional = rest_framework.serializers.SerializerMethodField()
 
@@ -15,6 +16,7 @@ class Subject(rest_framework.serializers.ModelSerializer):
 
     def get_is_optional(self, obj):
         return int(obj.is_optional)
+
 
 class ScheduleItem(rest_framework.serializers.ModelSerializer):
     day_item = DayItem()

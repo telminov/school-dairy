@@ -1,5 +1,6 @@
 .idea
-backend/.vagrant
+.vagrant
 backend/project/settings.py
 backend/db.sqlite3
 frontend/bower_components
+frontend/src/app/**/*.js

@@ -88,6 +88,7 @@ class DayItem(models.Model):
     def __str__(self):
         return '%s - %s' % (self.time_from.strftime('%H:%M'), self.time_to.strftime('%H:%M'))
 
+
 class ScheduleItem(models.Model):
     DAY_OF_WEEK_CHOICES = (
         (1, 'Понедельник'),
