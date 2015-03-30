@@ -1,5 +1,7 @@
 # coding=utf-8
+import datetime
 from django.db import models
+from django.utils import timezone
 
 
 class Subject(models.Model):
@@ -98,6 +100,7 @@ class ScheduleItem(models.Model):
         (5, 'Пятница'),
     )
 
+
     day_of_week = models.PositiveSmallIntegerField(choices=DAY_OF_WEEK_CHOICES, verbose_name='День недели')
     day_item = models.ForeignKey(DayItem, verbose_name='элемент дня')
     subject = models.ForeignKey(Subject, verbose_name='Предмет')
@@ -109,3 +112,8 @@ class ScheduleItem(models.Model):
 
     def __str__(self):
         return '%s %s %s' % (self.get_day_of_week_display(), self.day_item.position, self.subject.name)
+
+    def is_current_day(self):
+        eng_day_of_week = {'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5}
+        today = timezone.now().strftime('%A')
+        return eng_day_of_week[today] == self.day_of_week

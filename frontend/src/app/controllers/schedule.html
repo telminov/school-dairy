@@ -14,7 +14,7 @@
             <tr ng-repeat="dayItem in dayItems">
                 <td>{{ $index+1 }}</td>
 
-                <td ng-repeat="day in schedule.days">
+                <td ng-repeat="day in schedule.days" ng-class="{warning: schedule.getItem(day.name, dayItem).is_current_day}">
                     {{ schedule.getItem(day.name, dayItem).subject.name }}
                 </td>
 

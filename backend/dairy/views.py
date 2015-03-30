@@ -1,5 +1,6 @@
 # coding=utf-8
 from collections import OrderedDict
+import datetime
 import rest_framework.viewsets
 import rest_framework.mixins
 from djutils.response import JSONResponse
@@ -25,7 +26,9 @@ def get_schedule(request):
         }
 
         for item in models.ScheduleItem.objects.filter(day_of_week=i):
+
             item_data = serializers.ScheduleItem(instance=item).data
+            item_data['is_current_day'] = item.is_current_day()
             day_data['items'].append(item_data)
 
         c['schedule'].append(day_data)
