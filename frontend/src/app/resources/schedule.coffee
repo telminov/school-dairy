@@ -1,4 +1,5 @@
 angular.module('schoolDairy')
+
 .service 'schedule', ($http, config) ->
     this.days = []
 
@@ -14,7 +15,12 @@ angular.module('schoolDairy')
         )
         return promise
 
-    this.getAllDayItems = ->
-        return []
+    this.getItem = (dayName, dayItem) =>
+        for day in this.days
+            if day.name == dayName
+                for item in day.items
+                    if item.day_item.id == dayItem.id
+                        return item
+        return undefined
 
     return

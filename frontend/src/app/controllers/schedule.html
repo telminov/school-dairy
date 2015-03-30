@@ -1,13 +1,21 @@
 <table class="table table-striped" sw-loading="loading">
     <thead>
         <tr>
+            <th>#</th>
             <th ng-repeat="day in schedule.days">{{ day.name }}</th>
+            <th>время</th>
         </tr>
     </thead>
 
     <tbody>
-        <tr ng-repeat="dayItem in schedule.getAllDayItems()">
+        <tr ng-repeat="dayItem in dayItems">
+            <td>{{ $index+1 }}</td>
 
+            <td ng-repeat="day in schedule.days">
+                {{ schedule.getItem(day.name, dayItem).subject.name }}
+            </td>
+
+            <td>{{ dayItem.time_from }} - {{ dayItem.time_to }}</td>
         </tr>
     </tbody>
 </table>

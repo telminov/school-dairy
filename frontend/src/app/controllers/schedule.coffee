@@ -1,6 +1,7 @@
 angular.module('schoolDairy')
-.controller 'ScheduleCtrl', ($scope, schedule) ->
+.controller 'ScheduleCtrl', ($scope, schedule, DayItem) ->
     $scope.schedule = schedule
+    $scope.dayItems = DayItem.query()
 
     $scope.loading = true
     schedule.load().then(
