@@ -4,6 +4,8 @@ import dairy.models
 
 admin.site.register(dairy.models.Subject)
 admin.site.register(dairy.models.Tutorial)
+admin.site.register(dairy.models.DayItem)
+admin.site.register(dairy.models.ScheduleItem)
 
 
 class ClassworkInline(admin.TabularInline):
