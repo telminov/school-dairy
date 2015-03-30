@@ -1,38 +1,43 @@
-<!DOCPYTE html>
-<html lang="ru">
+<!doctype html>
+<html lang="ru" ng-app="schoolDairy">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="mobile-web-app-capable" content="yes">
-        <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+        <link rel="icon" href="img/fav.ico">
 
-        <link rel="import" href="elements.html">
+        <title ng-bind="'Дневник ' + schoolDairy.getTitle()"></title>
 
-        <link rel="stylesheet" href="style/main.css">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bower_components/sw-angular-utils/styles/utils.css" rel="stylesheet">
+
     </head>
-    <body fullbleed layout vertical>
 
-        <core-drawer-panel id="drawerPanel">
-            <core-header-panel drawer>
-                <core-toolbar>Меню</core-toolbar>
-                <core-menu>
-                    <core-item label="One"></core-item>
-                    <core-item label="Two"></core-item>
-                </core-menu>
-            </core-header-panel>
+    <body>
+        <div class="container">
+            <div ng-view></div>
+        </div>
 
-            <core-header-panel main>
-                <core-toolbar>
-                    <core-icon-button core-drawer-toggle icon="menu"></core-icon-button>
-                    <div>Дневник</div>
-                </core-toolbar>
 
-                <div class="content">
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-                </div>
-            </core-header-panel>
-        </core-drawer-panel>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <script src="bower_components/sw-angular-utils/src/app.js"></script>
+        <script src="bower_components/sw-angular-utils/src/filters.js"></script>
+        <script src="bower_components/sw-angular-utils/src/directives.js"></script>
+        <script src="bower_components/sw-angular-utils/src/services.js"></script>
+
+        <script src="src/app/app.js"></script>
+        <script src="src/app/controllers/main.js"></script>
+        <script src="src/app/controllers/schedule.js"></script>
+
 
     </body>
 </html>
