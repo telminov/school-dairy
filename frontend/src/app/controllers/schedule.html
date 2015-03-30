@@ -1,21 +1,28 @@
-<table class="table table-striped" sw-loading="loading">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th ng-repeat="day in schedule.days">{{ day.name }}</th>
-            <th>время</th>
-        </tr>
-    </thead>
+<div class="panel panel-default">
+    <div class="panel-heading">Расписание занятий</div>
 
-    <tbody>
-        <tr ng-repeat="dayItem in dayItems">
-            <td>{{ $index+1 }}</td>
+    <table class="table table-striped table-hover" sw-loading="loading">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th ng-repeat="day in schedule.days">{{ day.name }}</th>
+                <th>время</th>
+            </tr>
+        </thead>
 
-            <td ng-repeat="day in schedule.days">
-                {{ schedule.getItem(day.name, dayItem).subject.name }}
-            </td>
+        <tbody>
+            <tr ng-repeat="dayItem in dayItems">
+                <td>{{ $index+1 }}</td>
 
-            <td>{{ dayItem.time_from }} - {{ dayItem.time_to }}</td>
-        </tr>
-    </tbody>
-</table>
+                <td ng-repeat="day in schedule.days">
+                    {{ schedule.getItem(day.name, dayItem).subject.name }}
+                </td>
+
+                <td>
+                    <span class="label label-info">{{ dayItem.time_from }} - {{ dayItem.time_to }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
