@@ -2,6 +2,7 @@
   "devDependencies": {
     "bower": "1.4.0",
     "gulp": "^3.8.11",
+    "gulp-angular-templates": "0.0.1",
     "gulp-coffee": "^2.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-rename": "^1.2.0",

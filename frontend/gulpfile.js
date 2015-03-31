@@ -5,6 +5,14 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var coffee = require('gulp-coffee');
+var angularTemplates = require('gulp-angular-templates');
+
+gulp.task('html', function () {
+    return gulp.src('./src/app/controllers/**/*.html')
+        .pipe(angularTemplates({basePath: 'src/app/controllers/', module: 'schoolDairy'}))
+        .pipe(concat('templates.js'))
+        .pipe(gulp.dest('./dist/'));
+});
 
 gulp.task('js', function() {
   gulp.src('./src/app/**/*.coffee')
@@ -21,10 +29,10 @@ gulp.task('compress', function() {
             mangle: false
         }))
         .pipe(rename('app.min.js'))
-        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('./dist/'));
 });
 
-
 gulp.task('watch', function() {
-    gulp.watch('./src/app/**/*.js', ['js'])
+    gulp.watch('./src/app/**/*.coffee', ['js']);
+    gulp.watch('./src/app/controllers/**/*.html', ['html']);
 });
