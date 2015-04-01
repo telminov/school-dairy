@@ -7,15 +7,20 @@ var rename = require('gulp-rename');
 var coffee = require('gulp-coffee');
 var angularTemplates = require('gulp-angular-templates');
 
+var paths = {
+  scripts: ['./src/app/**/*.coffee'],
+  html: './src/app/controllers/**/*.html'
+};
+
 gulp.task('html', function () {
-    return gulp.src('./src/app/controllers/**/*.html')
+    return gulp.src(paths.html)
         .pipe(angularTemplates({basePath: 'src/app/controllers/', module: 'schoolDairy'}))
         .pipe(concat('templates.js'))
         .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('js', function() {
-  gulp.src('./src/app/**/*.coffee')
+  gulp.src(paths.scripts)
       .pipe(sourcemaps.init())
       .pipe(coffee().on('error', gutil.log))
       .pipe(concat('app.js'))
@@ -33,6 +38,6 @@ gulp.task('compress', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./src/app/**/*.coffee', ['js']);
-    gulp.watch('./src/app/controllers/**/*.html', ['html']);
+    gulp.watch(paths.scripts, ['js']);
+    gulp.watch(paths.html, ['html']);
 });

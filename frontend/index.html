@@ -7,12 +7,15 @@
         <title ng-bind="'Дневник ' + schoolDairy.getTitle()"></title>
 
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bower_components/angularjs-toaster/toaster.min.css" rel="stylesheet">
         <link href="bower_components/sw-angular-utils/styles/utils.css" rel="stylesheet">
         <link href="styles/main.css" rel="stylesheet">
 
     </head>
 
     <body>
+        <toaster-container toaster-options="{'close-button': true}"></toaster-container>
+
         <div class="container">
             <div ng-view></div>
         </div>
@@ -30,6 +33,7 @@
         <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
+        <script src="bower_components/angularjs-toaster/toaster.js"></script>
         <script src="bower_components/sw-angular-utils/sw-angular-utils.min.js"></script>
 
         <script src="dist/app.js"></script>

@@ -5,6 +5,7 @@ angular.module('schoolDairy', [
     'ngAnimate'
 
     'ui.bootstrap'
+    'toaster'
 
     'swUtils'
 ])
