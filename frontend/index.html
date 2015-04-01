@@ -16,6 +16,38 @@
     <body>
         <toaster-container toaster-options="{'close-button': true}"></toaster-container>
 
+
+        <nav class="navbar navbar-default" ng-controller="NavBarCtrl">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/">Дневник</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li class="active" ng-class="{ active: isActive('/schedule/')}"><a href="#/schedule/">Расписание</a></li>
+                </ul>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-show="!auth.isAuthenticated()&&!auth.isLoginPage()">
+                            <a href="#/login/">Войти</a>
+                        </li>
+                        <li class="dropdown" ng-show="auth.isAuthenticated()">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
+                                <span ng-bind="auth.getUser().username"></span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#/logout/"><i class="glyphicon glyphicon-log-out"></i> Выйти</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
         <div class="container">
             <div ng-view></div>
         </div>

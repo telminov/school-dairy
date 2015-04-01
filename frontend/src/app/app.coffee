@@ -41,6 +41,10 @@ angular.module('schoolDairy', [
 .config (authConfigProvider, config) ->
     authConfigProvider.setSystemLabel('Дневник')
     authConfigProvider.setServerAddress(config.serverAddress)
+    authConfigProvider.setFreeUrls([
+        '/'
+        '/schedule/'
+    ])
 
 .config ($httpProvider) ->
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
