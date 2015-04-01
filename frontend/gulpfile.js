@@ -38,6 +38,6 @@ gulp.task('compress', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(paths.scripts, ['js']);
+    gulp.watch(paths.scripts, ['js', 'compress']);
     gulp.watch(paths.html, ['html']);
 });

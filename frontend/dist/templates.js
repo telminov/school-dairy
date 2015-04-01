@@ -1,4 +1,12 @@
 angular.module('schoolDairy').run(['$templateCache', function($templateCache) {
+    $templateCache.put('src/app/controllers/login.html',
+        "<div class=\"header\">\n    <h3 class=\"text-muted\">{{ header }}</h3>\n</div>\n\n<div>\n    <alert ng-repeat=\"error in loginErrors\" type=\"danger\" close=\"closeAlert($index)\">\n        {{ error }}\n    </alert>\n\n    <h1>Вход</h1>\n    <form class=\"form-horizontal authentication\" ng-submit=\"logIn()\">\n        <div class=\"form-group\">\n            <label for=\"inputLogin\" class=\"col-lg-2 control-label\">Логин</label>\n            <div class=\"col-lg-8\">\n                <input type=\"text\" class=\"form-control\" id=\"inputLogin\" placeholder=\"логин\"\n                       ng-model=\"login\" autofocus=\"autofocus\" required>\n            </div>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"inputPassword\" class=\"col-lg-2 control-label\">Пароль</label>\n            <div class=\"col-lg-8\">\n                <input type=\"password\" class=\"form-control\" id=\"inputPassword\"\n                       placeholder=\"пароль\" ng-model=\"password\" required>\n            </div>\n        </div>\n        <div class=\"form-group\">\n            <div class=\"col-lg-offset-2 col-lg-8\">\n                <button type=\"submit\" class=\"btn btn-default\">Войти</button>\n            </div>\n        </div>\n    </form>\n</div>");
+}]);
+angular.module('schoolDairy').run(['$templateCache', function($templateCache) {
+    $templateCache.put('src/app/controllers/logout.html',
+        "<div class=\"header\">\n    <h3 class=\"text-muted\">{{ header }}</h3>\n</div>\n\n<alert type=\"danger\" ng-show=\"logoutError\">{{ logoutError }}</alert>\n\n<h1>Выход</h1>\n<p ng-if=\"inProcess\">\n    Выхожу...\n</p>\n");
+}]);
+angular.module('schoolDairy').run(['$templateCache', function($templateCache) {
     $templateCache.put('src/app/controllers/main.html',
         "Главная");
 }]);

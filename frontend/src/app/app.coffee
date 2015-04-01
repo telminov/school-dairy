@@ -7,6 +7,7 @@ angular.module('schoolDairy', [
     'ui.bootstrap'
     'toaster'
 
+    'swAuth'
     'swUtils'
 ])
 
@@ -14,16 +15,35 @@ angular.module('schoolDairy', [
     $routeProvider
 
     .when('/',
-      templateUrl: 'src/app/controllers/main.html'
-      controller: 'MainCtrl'
-      label: ''
+        templateUrl: 'src/app/controllers/main.html'
+        controller: 'MainCtrl'
+        label: ''
     )
 
     .when('/schedule/',
-      templateUrl: 'src/app/controllers/schedule.html'
-      controller: 'ScheduleCtrl'
-      label: 'Расписание'
+        templateUrl: 'src/app/controllers/schedule.html'
+        controller: 'ScheduleCtrl'
+        label: 'Расписание'
     )
+
+    .when('/login/',
+        templateUrl: 'src/app/controllers/login.html'
+        controller: 'AuthLoginCtrl'
+        label: 'Вход'
+    )
+    .when('/logout/',
+        templateUrl: 'src/app/controllers/logout.html'
+        controller: 'AuthLogoutCtrl'
+        label: 'Выход'
+    )
+
+
+.config (authConfigProvider, config) ->
+    authConfigProvider.setSystemLabel('Дневник')
+    authConfigProvider.setServerAddress(config.serverAddress)
+
+.config ($httpProvider) ->
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 .run ($location, $rootScope, swTitle) ->
     $rootScope.swTitle = swTitle
