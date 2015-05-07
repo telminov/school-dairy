@@ -16,7 +16,7 @@
     - name: Install virtualenv
       easy_install: name=virtualenv
 
-    - name: Install virtualenv requiremenets
+    - name: Install virtualenv
       shell: virtualenv -p /usr/bin/python3 {{ virtualenv_path }}
       sudo_user: "{{ virtualenv_user }}"
 
